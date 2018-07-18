@@ -161,7 +161,8 @@ TEMPLATES = [{
         'string_if_invalid': '<< MISSING VARIABLE "%s" >>' if DEBUG else ''}}]
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = os.environ.get('SECRET_KEY')
+#SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = '!g22wppq$9-l#4+wma7&z34@mjv^kaj#l)y4+!$4+1vqq==xzx'
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -347,7 +348,7 @@ bootstrap4 = {
 TEST_RUNNER = ''
 
 ALLOWED_HOSTS = get_list(
-    os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1'))
+    os.environ.get('ALLOWED_HOSTS', 'demo-django-x0.herokuapp.com'))
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
