@@ -358,7 +358,7 @@ bootstrap4 = {
 TEST_RUNNER = ''
 
 ALLOWED_HOSTS = get_list(
-    os.environ.get('ALLOWED_HOSTS', 'demo-dj-x1.herokuapp.com'))
+    os.environ.get('ALLOWED_HOSTS', 'demo-dj-x0.herokuapp.com'))
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
