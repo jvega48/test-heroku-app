@@ -26,6 +26,8 @@ def get_bool_from_env(name, default_value):
     return default_value
 
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 DEBUG = get_bool_from_env('DEBUG', True)
 
 SITE_ID = 1
@@ -116,13 +118,23 @@ ORDER_FROM_EMAIL = os.getenv('ORDER_FROM_EMAIL', DEFAULT_FROM_EMAIL)
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    ('assets', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'assets')),
-    ('favicons', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'favicons')),
-    ('images', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'images')),
-    ('dashboard', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'dashboard'))]
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+
+#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+#STATIC_URL = '/static/'
+#STATICFILES_DIRS = [
+    #('assets', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'assets')),
+    #('favicons', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'favicons')),
+    #('images', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'images')),
+    #('dashboard', os.path.join(PROJECT_ROOT, 'saleor', 'static', 'dashboard'))]
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder']
